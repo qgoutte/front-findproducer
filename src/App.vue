@@ -1,5 +1,6 @@
 <template>
   <div>
+    <MenuHeader/>
     <InputText v-model="text"/>
     <Button label="Greet" icon="pi pi-user" @click="greet"></Button>
     {{text}}
@@ -10,9 +11,15 @@
 <script>
 import { defineComponent, ref } from "vue";
 import { useToast } from 'primevue/usetoast';
+import MenuHeader from './components/MenuHeader';
 
 export default defineComponent({
+  name: "App",
+  components: {
+    MenuHeader
+  },
   setup(){
+   
     const toast= useToast();
     const text = ref('Prime');
     const greet = () => {
@@ -49,6 +56,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
